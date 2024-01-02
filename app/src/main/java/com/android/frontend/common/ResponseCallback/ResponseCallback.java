@@ -1,4 +1,4 @@
-package com.android.frontend.network;
+package com.android.frontend.common.ResponseCallback;
 
 public interface ResponseCallback<T> {
     void onSuccess(T response);

@@ -3,22 +3,12 @@
           xmlns:tools="http://schemas.android.com/tools">
 
     <!-- 添加网络权限 -->
-    <!-- 联网权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--接入wifi状态-->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- SD卡权限 -->
-    <!--读-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--写-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--在sdcard中创建/删除文件的权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" tools:ignore="ProtectedPermissions" />
-    <!--android:usesCleartextTraffic="true"表示使用明文通信-->
-
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- 接入wifi状态 -->
+    <uses-permission
+            android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+            tools:ignore="ProtectedPermissions"/>
 
     <application
-            android:usesCleartextTraffic="true"
             android:allowBackup="true"
             android:dataExtractionRules="@xml/data_extraction_rules"
             android:fullBackupContent="@xml/backup_rules"
@@ -31,20 +21,29 @@
             android:networkSecurityConfig="@xml/network_security_config">
 
         <!-- 允许使用过时的 Apache HTTP 客户端库 -->
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false"/>
 
         <activity
-                android:name=".ui.YourMainActivity"
+                android:name=".ui.MainActivity"
                 android:exported="true">
         </activity>
 
-        <activity android:name=".ui.MainActivity" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+                android:name=".ui.RegisterActivity"
+                android:exported="true">
         </activity>
 
+        <activity
+                android:name=".ui.LoginActivity"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

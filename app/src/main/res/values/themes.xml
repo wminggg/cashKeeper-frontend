@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.CashKeeperfrontend" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.CashKeeperfrontend" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="android:statusBarColor">@color/my_light_primary</item>
     </style>
+
+<!--    透明状态栏-->
+<!--    <style name="Base.Theme.CashKeeperfrontend" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+<!--    </style>-->
 
     <style name="Theme.CashKeeperfrontend" parent="Base.Theme.CashKeeperfrontend"/>
 </resources>

@@ -1,11 +1,10 @@
-package com.android.frontend.network;
+package com.android.frontend.common.utils;
 
 import com.google.gson.Gson;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
-public class RequestBuilder {
-
+public class JsonUtils {
     private static final Gson gson = new Gson();
 
     public static RequestBody buildJsonBody(Object body) {

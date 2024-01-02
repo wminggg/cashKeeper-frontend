@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources> 
+<resources>
+    <color name="SUCCESS">#F1F9EA</color>
+    <color name="FAILURE">#FDE0E0</color>
+    <color name="DEFAULT">#FFFFF0</color>
+
+
+    <color name="button_default_color">#3498db</color>
+    <color name="button_pressed_color">#2980b9</color>
+    <color name="button_text_color">#ffffff</color>
+
+
+    <color name="my_light_primary">#2980b9</color>
+
     <color name="transparent">#00000000</color><!--透明色 --> 
     <color name="white">#FFFFFF</color><!--白色 --> 
     <color name="ivory">#FFFFF0</color><!--象牙色 --> 

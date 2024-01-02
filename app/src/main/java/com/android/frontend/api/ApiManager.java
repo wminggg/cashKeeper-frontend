@@ -5,7 +5,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiManager {
-    private static ApiService apiService;
+    private static volatile ApiService apiService;
 
     private ApiManager() {
         // private constructor to prevent instantiation
