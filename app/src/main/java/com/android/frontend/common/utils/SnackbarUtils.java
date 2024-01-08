@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat;
 import com.android.frontend.R;
 import com.android.frontend.model.enums.SnackbarType;
 import com.caverock.androidsvg.SVGImageView;
-import com.caverock.androidsvg.SVGParseException;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -54,7 +53,7 @@ public class SnackbarUtils {
      * @return Snackbar的自定义布局
      */
     private static View createSnackbarLayout(Context context, String message, SnackbarType snackbarType) {
-        @SuppressLint("InflateParams") View customSnackbarView = LayoutInflater.from(context).inflate(R.layout.common_snackbar_layout, null);
+        @SuppressLint("InflateParams") View customSnackbarView = LayoutInflater.from(context).inflate(R.layout.snackbar_common, null);
         LinearLayout customSnackbarLayout = customSnackbarView.findViewById(R.id.customSnackbarLayout);
 
         // 加载并显示SVG图像
@@ -66,7 +65,8 @@ public class SnackbarUtils {
         customSnackbarLayout.addView(textView);
 
         // 设置背景
-        Drawable background = createRoundRectBackground(ContextCompat.getColor(context, R.color.ivory), context);
+//        Drawable background = createRoundRectBackground(ContextCompat.getColor(context, R.color.ivory), context);
+        Drawable background = createRoundRectBackground(ContextCompat.getColor(context, R.color.grey), context);
         customSnackbarLayout.setBackground(background);
 
         return customSnackbarView;

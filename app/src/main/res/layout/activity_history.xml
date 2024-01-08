@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey_f3f3f3">
+
+    <RelativeLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        <ImageView
+                android:id="@+id/history_iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/it_back"
+                android:layout_marginLeft="10dp"
+                android:onClick="onClick"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/history_record"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_centerInParent="true"/>
+        <ImageView
+                android:id="@+id/history_iv_rili"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/it_rili"
+                android:layout_alignParentRight="true"
+                android:onClick="onClick"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/middleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topLayout"
+            android:padding="10dp">
+
+        <TextView
+                android:id="@+id/history_tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020年11月"/>
+        <TextView
+                android:id="@+id/history_tv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/themes_color"
+                android:text="@string/history_info"/>
+    </RelativeLayout>
+
+    <ListView
+            android:id="@+id/history_lv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@id/middleLayout"
+            android:layout_above="@+id/history_btn_clear"
+            android:padding="10dp"
+            android:divider="@null"
+            android:dividerHeight="5dp"/>
+    <Button
+            android:id="@+id/history_btn_clear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clear_all"
+            android:background="@drawable/selector_btn_common"
+            android:textStyle="bold"
+            android:onClick="onClick"
+            android:textColor="@color/white"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+</RelativeLayout>

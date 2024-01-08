@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="25dp"
+        android:background="@drawable/dialog_background">
+
+    <TextView
+            android:id="@+id/dialog_note_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_note"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+    <EditText
+            android:id="@+id/dialog_note_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_note_tv"
+            android:background="@drawable/edittext_common"
+            android:hint="@string/remark"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp">
+        <requestFocus/>
+    </EditText>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/dialog_note_et"
+            android:padding="10dp">
+
+        <Button
+                android:id="@+id/dialog_note_btn_ensure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ensure"
+                android:background="@drawable/selector_btn_common"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginEnd="5dp"
+                style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+                android:id="@+id/dialog_note_btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                android:background="@drawable/selector_btn_cancel"
+                android:textStyle="bold"
+                android:textColor="@color/themes_color"
+                android:layout_marginEnd="5dp"
+                style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
+</RelativeLayout>

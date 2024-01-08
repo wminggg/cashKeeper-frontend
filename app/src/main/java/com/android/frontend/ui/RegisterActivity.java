@@ -4,17 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import com.android.frontend.R;
 import com.android.frontend.common.ResponseCallback.ResponseCallback;
 import com.android.frontend.common.utils.SnackbarUtils;
-import com.android.frontend.databinding.AuthRegisterLayoutBinding;
+import com.android.frontend.databinding.ActivityRegisterBinding;
 import com.android.frontend.model.dto.UserRegister;
 import com.android.frontend.model.enums.SnackbarType;
 import com.android.frontend.network.NetworkManager;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private AuthRegisterLayoutBinding authRegisterLayoutBinding;
+    private ActivityRegisterBinding activityRegisterBinding;
 
     // 表示当前页面
     private View currentView;
@@ -22,8 +21,8 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        authRegisterLayoutBinding = AuthRegisterLayoutBinding.inflate(getLayoutInflater());
-        setContentView(authRegisterLayoutBinding.getRoot());
+        activityRegisterBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
+        setContentView(activityRegisterBinding.getRoot());
 
         // 在onCreate中初始化currentView
         currentView = findViewById(android.R.id.content);
@@ -31,14 +30,14 @@ public class RegisterActivity extends AppCompatActivity {
         // 登录页面的Snackbar
         SnackbarUtils.showCustomSnackbar(currentView, "请注册", SnackbarType.DEFAULT);
 
-        authRegisterLayoutBinding.RegisterButton.setOnClickListener(v -> handleRegister());
-        authRegisterLayoutBinding.ToLoginButton.setOnClickListener(v -> handleToLogin());
+        activityRegisterBinding.RegisterButton.setOnClickListener(v -> handleRegister());
+        activityRegisterBinding.ToLoginButton.setOnClickListener(v -> handleToLogin());
     }
 
     private void handleRegister() {
-        String userAccount = authRegisterLayoutBinding.UserNameEdit.getText().toString();
-        String userPassword = authRegisterLayoutBinding.PassWordEdit.getText().toString();
-        String checkPassword = authRegisterLayoutBinding.CheckPasswordEdit.getText().toString();
+        String userAccount = activityRegisterBinding.UserNameEdit.getText().toString();
+        String userPassword = activityRegisterBinding.PassWordEdit.getText().toString();
+        String checkPassword = activityRegisterBinding.CheckPasswordEdit.getText().toString();
         if (userAccount.isEmpty()) {
             SnackbarUtils.showCustomSnackbar(currentView, "账号不能为空", SnackbarType.DEFAULT);
             return;

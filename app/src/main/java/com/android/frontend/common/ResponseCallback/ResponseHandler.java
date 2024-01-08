@@ -8,6 +8,12 @@ import retrofit2.Response;
 
 import java.io.IOException;
 
+/**
+ * @Description: 响应处理类
+ * @Author: MING
+ * @Date: 2024/01/06
+ */
+
 public class ResponseHandler {
 
     public static <T> void handleResponse(Call<BaseResponse<T>> call, ResponseCallback<T> callback) {
@@ -37,7 +43,7 @@ public class ResponseHandler {
         }
     }
     private static Throwable createThrowable(String errorMessage) {
-        return (errorMessage != null) ? new Throwable(errorMessage) : null;
+        return new Throwable(errorMessage);
     }
     private static boolean isNetworkError(Throwable t) {
         return t instanceof IOException;

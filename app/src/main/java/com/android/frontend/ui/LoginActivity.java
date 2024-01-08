@@ -5,7 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.frontend.common.ResponseCallback.ResponseCallback;
-import com.android.frontend.databinding.AuthLoginLayoutBinding;
+import com.android.frontend.databinding.ActivityLoginBinding;
+import com.android.frontend.databinding.ActivityMainBinding;
 import com.android.frontend.model.dto.UserLogin;
 import com.android.frontend.model.enums.SnackbarType;
 import com.android.frontend.network.NetworkManager;
@@ -13,7 +14,7 @@ import com.android.frontend.common.utils.SnackbarUtils;
 
 public class LoginActivity extends AppCompatActivity {
     // 使用 ViewBinding 自动生成的绑定类
-    private AuthLoginLayoutBinding authLoginLayoutBinding;
+    private ActivityLoginBinding activityLoginBinding;
 
     // 表示当前页面
     private View currentView;
@@ -21,8 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        authLoginLayoutBinding = AuthLoginLayoutBinding.inflate(getLayoutInflater());
-        setContentView(authLoginLayoutBinding.getRoot());
+        activityLoginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
+        View view = activityLoginBinding.getRoot();
+        setContentView(view);
 
         // 在onCreate中初始化currentView
         currentView = findViewById(android.R.id.content);
@@ -30,13 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         // 登录页面的Snackbar
         SnackbarUtils.showCustomSnackbar(currentView, "请登录", SnackbarType.DEFAULT);
 
-        authLoginLayoutBinding.LoginButton.setOnClickListener(v -> handleLogin());
-        authLoginLayoutBinding.ToRegisterButton.setOnClickListener(v -> handleToRegister());
+        activityLoginBinding.LoginButton.setOnClickListener(v -> handleLogin());
+        activityLoginBinding.ToRegisterButton.setOnClickListener(v -> handleToRegister());
     }
 
     private void handleLogin() {
-        String userAccount = authLoginLayoutBinding.UserNameEdit.getText().toString();
-        String userPassword = authLoginLayoutBinding.PassWordEdit.getText().toString();
+        String userAccount = activityLoginBinding.UserNameEdit.getText().toString();
+        String userPassword = activityLoginBinding.PassWordEdit.getText().toString();
 
         if (userAccount.isEmpty()) {
             SnackbarUtils.showCustomSnackbar(currentView, "用户名不能为空", SnackbarType.DEFAULT);
@@ -53,10 +55,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void response) {
                 runOnUiThread(() -> {
+                    SnackbarUtils.showCustomSnackbar(currentView, "登录成功", SnackbarType.SUCCESS);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
-                    // 在登录成功后再次显示 Snackbar
-                    SnackbarUtils.showCustomSnackbar(currentView, "登录成功", SnackbarType.SUCCESS);
                 });
             }
 
